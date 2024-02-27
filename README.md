@@ -32,6 +32,9 @@ cat ERR10493277_small-FINAL.vs.d1.fq | awk '{if(NR%4==2) print length($1)}' | so
 
 ```
 
-
+Now we are going to use bowtie2.
+```
+bowtie2 --threads 4 -k 1000 -x /shared/data/euks_database/refseq211_small_dedup.fa -D 15 -R 2 -N 0 -L 22 -i S,1,1.15 -U ERR10493277_small-FINAL.vs.d1.fq --no-unal | samtools view -bS - > ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.bam
+```
 
 
