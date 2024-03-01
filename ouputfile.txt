@@ -1,0 +1,596 @@
+    1  ll
+    2  cat examples.desktop
+    3  ls
+    4  ll
+    5  ls
+    6  ll
+    7  sinfo
+    8  mkdir bin && cd bin/
+    9  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+   10  bash https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+   11  ll
+   12  bash Miniconda3-latest-Linux-x86_64.sh 
+   13  ls
+   14  cd ..
+   15  ls
+   16  ll
+   17  source ~/.bashrc
+   18  conda config --set auto_activate_base false
+   19  exit
+   20  ll
+   21  cd acad-workshop/
+   22  screen -R eager-screening
+   23  screen -r eager-screening
+   24  squeue
+   25  ll
+   26  cd eager-screening/
+   27  ll
+   28  cd adapterremoval
+   29  ll
+   30  cd output/
+   31  ll
+   32  cd ..
+   33  ll
+   34  cd ..
+   35  screen
+   36  screen -list
+   37  screen -r pts-10.ip-10-255-2-83
+   38  conda --version
+   39  conda --add channels defaults
+   40  conda config --add channels defaults
+   41  conda config --add channels bioconda
+   42  conda config --add channels conda-forge
+   43  conda create -n nf-core-dsl1 -c bioconda nextflow=22.10.6
+   44  conda activate nf-core-dsl1
+   45  conda deactivate
+   46  ll
+   47  conda activate nf-core-dsl1
+   48  which nextflow
+   49  conda deactivate
+   50  conda create -n nf-core-dsl2 -c bioconda nextflow=23.10
+   51  conda activate nf-core-dsl2
+   52  which nextflow
+   53  conda deactivate
+   54  spack load apptainer
+   55  singularity --version
+   56  ls
+   57  ll
+   58  cd ~
+   59  mkdir acad-workshop
+   60  cd acad-workshop/
+   61  ls
+   62  conda activate nf-core-dsl1
+   63  nextflow pull nf-core/eager -r 2.5.0
+   64  nextflow run nf-core/eager -r 2.5.0 -profile apptainer, test --outdir ./test-example
+   65  nextflow run nf-core/eager -r 2.5.0 -profile singularity, test --outdir ./test-example
+   66  nextflow run nf-core/eager -r 2.5.0 -profile singularity,test --outdir ./test-example
+   67  ls
+   68  cd test-example/
+   69  ll
+   70  sinfo -o "%P %c %m %t %l
+   71  "
+   72  cat .nextflow.log
+   73  cd ../work/
+   74  ls
+   75  ll
+   76  cat .nextflow.log
+   77  cd ..
+   78  cd test
+   79  ls
+   80  cd test-example/
+   81  ll
+   82  cd ..
+   83  cd work/
+   84  cd 8d/
+   85  ll
+   86  cd 681e4ab4d524f7f87cb23b8faac0a3/
+   87  ll
+   88  cat .command.log 
+   89  cat command.err
+   90  cat .command.err
+   91  ll
+   92  squeue
+   93  ls
+   94  screen -list
+   95  screen -r pts-10.ip-10-255-2-83
+   96  squeue
+   97  ll
+   98  cd acad-workshop/
+   99  ll
+  100  cd eager-screening/
+  101  ll
+  102  cd multiqc/
+  103  ll
+  104  pwd
+  105  ll
+  106  cd ..
+  107  nextflow clean -f
+  108  screen -list
+  109  screen -r pts-10.ip-10-255-2-83
+  110  squeue
+  111  htop
+  112  git clone --help
+  113  ls
+  114  cd acad-workshop/
+  115  ll
+  116  ls
+  117  git clone https://github.com/biancamariabonucci/acad_workshop2024.git
+  118  ls
+  119  cd acad_workshop2024/
+  120  ls
+  121  cat README.md 
+  122  ls
+  123  ll
+  124  nano README.md 
+  125  git add  README.md 
+  126  ls
+  127  git commit -m "Added some words"
+  128  git config --global user.email "biancamaria.bonucci@ut.ee"
+  129  git commit -m "Added some words"
+  130  git config --global user.email biancamaria.bonucci@ut.ee
+  131  git commit -m "Added some words"
+  132  git add README.md 
+  133  git commit -m "Added some words"
+  134  git add README.md 
+  135  git config --global user.email "biancamaria.bonucci@ut.ee"
+  136  git commit -m "Added some words"
+  137  git config --global user.name "Bianca"
+  138  git commit -m "Added some words"
+  139  git push
+  140  ll
+  141  git push
+  142  nano .condarc
+  143  srun --export=ALL --ntasks-per-node 4 --nodes 1 --mem 40G  -t 01:00:00 --pty bash
+  144  squeue
+  145  srun --export=ALL --ntasks-per-node 4 --nodes 1 --mem 10G  -t 01:00:00 --pty bash
+  146  conda deactivate
+  147  conda create -n bamfilter
+  148  conda create -n bam-filter
+  149  conda activate bam-filter
+  150  conda install -c conda-forge -c bioconda -c genomewalker bam-filter
+  151  ll
+  152  conda activate acad-euks_1
+  153  srun -n 1 --mem 1GB  vsearch --fastx_uniques euks_data/ERR10493277_small-FINAL.fq.gz --fastqout ./ERR10493277_small-FINAL.vs.fq --minseqlength 30 --strand both
+  154  cd /shared/data/fastq/
+  155  ls
+  156  pwd
+  157  ll
+  158  cd ~
+  159  ll
+  160  cd acad-workshop/
+  161  mkdir euks
+  162  cd euks/
+  163  ln -s /shared/data/
+  164  ln -s /shared/data/euks_data/*
+  165  ls
+  166  ll
+  167  cd ..
+  168  ll
+  169  cd acad_workshop2024/
+  170  ls
+  171  cd ..
+  172  ll
+  173  cd euks/
+  174  ll
+  175  ln -s /shared/data/euks_data/*
+  176  ll
+  177  rm -i ERR10493277_small-FINAL.fq.gz
+  178  unlink ERR10493277_small-FINAL.fq.gz
+  179  ll
+  180  unlink data
+  181  ln -s /shared/data/euks_data/*
+  182  ll
+  183  ll ../../shared/data/euks_env/
+  184  ll
+  185  conda create -f /shared/data/euks_env/acad-euks_1.yaml 
+  186  nano .condarc 
+  187  conda env create -f /shared/data/euks_env/acad-euks_1.yaml
+  188  conda activate acad-euks_1
+  189  pip install bam-filter
+  190  srun --export=ALL --ntasks-per-node 4 --nodes 1 --mem  30G  -t 02:00:00 --pty bash
+  191  ll
+  192  srun -n 1 --mem 1GB  vsearch --fastx_uniques /shared/data/euks_data/ERR10493277_small-FINAL.fq.gz --fastqout ./ERR10493277_small-FINAL.vs.fq --minseqlength 30 --strand both
+  193  ll
+  194  cd acad-workshop/euks/
+  195  ll
+  196  srun -n 1 --mem 1GB  vsearch --fastx_uniques /shared/data/euks_data/ERR10493277_small-FINAL.fq.gz --fastqout ./ERR10493277_small-FINAL.vs.fq --minseqlength 30 --strand both
+  197  srun -n 1 --mem 5GB sga preprocess -m 30 --dust-threshold=1 ERR10493277_small-FINAL.vs.fq  -o ERR10493277_small-FINAL.vs.d1.fq 
+  198  for file in ERR10493277_small-FINAL.vs.d1.fq; do grep 'M_A00706' $file | cut -f2 -d@ > $file.readID.tmp ; done
+  199  ls
+  200  grep 'M_A00706' ERR10493277_small-FINAL.vs.fq | grep -f readID.tmp -v | cut -f2 -d@ > $file.readID_lowcom.tmp
+  201  ll
+  202  grep 'M_A00706' ERR10493277_small-FINAL.vs.fq | grep -f $file.readID.tmp -v | cut -f2 -d@ > $file.readID_lowcom.tmp
+  203  ll
+  204  wc -l ERR10493277_small-FINAL.vs.d1.fq.readID_lowcom.tmp
+  205  seqtk subseq ERR10493277_small-FINAL.vs.fq ERR10493277_small-FINAL.vs.d1.fq.readID_lowcom.tmp
+  206  ll
+  207  wc -l ERR10493277_small-FINAL.vs.d1.fq.readID_lowcom.tmp
+  208  cat ERR10493277_small-FINAL.vs.d1.fq | awk '{if(NR%4==2) print length($1)}' | sort -n | uniq -c > $file.read_length.txt &
+  209  ll
+  210  cat ERR10493277_small-FINAL.vs.d1.fq.read_length.txt
+  211  ll
+  212  nano rename_readlength_files.sh
+  213  chmod +x rename_readlength_files.sh
+  214  /acad_workshop2024/scripts/readlengthPLOT_fastq.sh
+  215  ll /shared//ac
+  216  ll
+  217  nano rename_readlength_files.sh
+  218  srun --export=ALL --ntasks-per-node 4 --nodes 1 --mem  10G  -t 02:00:00 --pty bash
+  219  ll
+  220  conda activate acad-euks_1
+  221  R
+  222  conda activate nf-core-dsl1
+  223  spack load apptainer
+  224  ls
+  225  ll
+  226  conda activate nf-core-dsl1
+  227  spack load apptainer
+  228  ll
+  229  ln -s /shared/data/envadna.conf .
+  230  ll
+  231  screen -list
+  232  nextflow run nf-core/eager -r 2.5.0 -c envadna.conf -profile singularity --input '/shared/data/samplesheets/eager_input.tsv' --outdir 'eager-screening'
+  233  nextflow run nf-core/eager -r 2.5.0 -c envadna.conf -profile singularity --input '/shared/data/samplesheets/eager_input.tsv' --outdir 'eager-screening/' --mapper 'bowtie2' --fasta '/shared/data/genomes/GCF_000819615.1_ViralProj14015_genomic.fna' --run_bam_filtering --bam_unmapped_type fastq --metagenomic_complexity_filter --run_metagenomic_screening --metagenomic_tool 'malt' --database '/shared/data/databases/malt_db/' --run_maltextract --maltextract_taxon_list '/shared/data/databases/maixner_mini_targetlist.txt' --maltextract_ncbifiles '/shared/data/databases/' --skip_preseq --skip_deduplication --skip_damage_calculation --skip_qualimap
+  234  screen -list
+  235  nextflow run nf-core/eager -r 2.5.0 -c envadna.conf -profile singularity --input '/shared/data/samplesheets/eager_input.tsv' --outdir 'eager-screening/' --mapper 'bowtie2' --fasta '/shared/data/genomes/GCF_000819615.1_ViralProj14015_genomic.fna' --run_bam_filtering --bam_unmapped_type fastq --metagenomic_complexity_filter --run_metagenomic_screening --metagenomic_tool 'malt' --database '/shared/data/databases/malt_db/' --run_maltextract --maltextract_taxon_list '/shared/data/databases/maixner_mini_targetlist.txt' --maltextract_ncbifiles '/shared/data/databases/' --skip_preseq --skip_deduplication --skip_damage_calculation --skip_qualimap -resume
+  236  nextflow clean -f
+  237  ll
+  238  tree
+  239  ll
+  240  ll
+  241  cd ..
+  242  ls
+  243  screen -list
+  244  screen -r eager-screening 
+  245  ll
+  246  ll
+  247  cd acad-workshop/
+  248  ll
+  249  cd euks
+  250  ll
+  251  screen -list
+  252  ll
+  253  screen -R whatever
+  254  screen -d
+  255  screen -r 332951.eager-screening
+  256  screen -list
+  257  screen -r 376336.pts-10.ip-10-255-2-83
+  258  screen -R whatever
+  259  history
+  260  ll
+  261  cd ..
+  262  ll
+  263  cd acad_workshop2024/
+  264  ll
+  265  nano README.md 
+  266  ll
+  267  cd ..
+  268  ll
+  269  cd euks/
+  270  cd ..
+  271  ll
+  272  cd acad_workshop2024/
+  273  ll
+  274  git pull
+  275  ll
+  276  cat README.md 
+  277  ll
+  278  cd ..
+  279  ll
+  280  cd acad-workshop/
+  281  ll
+  282  cd euks/
+  283  ll
+  284  sbatch -n 1 --mem 8GB /shared/data/euks_programmes/readlengthPLOT_fastq.sh
+  285  cat /shared/data/euks_programmes/readlengthPLOT_fastq.sh
+  286  squeue
+  287  ll
+  288  cat slurm-2597.out
+  289  ls
+  290  cat script.R 
+  291  ls
+  292  ll
+  293  cat rename_readlength_files.sh
+  294  cat script.R
+  295  ll
+  296  cat slurm-2597.out 
+  297  conda activate acad-euks_1
+  298  sbatch -n 1 --mem 8GB /shared/data/euks_programmes/readlengthPLOT_fastq.sh
+  299  j
+  300  squeue
+  301  ll
+  302  cat slurm-2607.out 
+  303  ll
+  304  mkdir ../acad_workshop2024/figures
+  305  cp facet_wrap.pdf ../acad_workshop2024/figures/
+  306  pwd
+  307  ll
+  308  cat script.R 
+  309  ls
+  310  history | grep 'git'
+  311  cd ..
+  312  ll
+  313  cd acad-workshop/acad_workshop2024/
+  314  ll
+  315  cat figures/
+  316  ll
+  317  cd figures/
+  318  ll
+  319  cd ..
+  320  git add figures/
+  321  git commit 
+  322  git commit -m "Adding figures folder"
+  323  git push
+  324  ll
+  325  cd ..
+  326  cd euks/
+  327  ll
+  328  screen -list
+  329  screen -r whatever
+  330  screen -list
+  331  screen -r whatever
+  332  screen -list
+  333  ll
+  334  screen -list
+  335  screen -R whatever
+  336  conda activate acad-euks_1
+  337  ll
+  338  bowtite2 --help
+  339  bowtie2 --help
+  340  ll
+  341  cat bowtie2 --help
+  342  bowtie2 --threads 4 -k 1000 -x /shared/data/euks_database/refseq211_small_dedup.fa -D 15 -R 2 -N 0 -L 22 -i S,1,1.15 -U ERR10493277_small-FINAL.vs.d1.fq --no-unal | samtools view -bS - > ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.bam
+  343  sbatch --time=02:00:00 --mem=30G -J bowtie2_B -wrap "bowtie2 --threads 4 -k 1000 -x /shared/data/euks_database/refseq211_small_dedup.fa -D 15 -R 2 -N 0 -L 21 -i S,1,1.15 -U ERR10493277_small-FINAL.vs.d1.fq --no-unal | samtools view -bS - > ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.bam"
+  344  screen -list
+  345  ll
+  346  cd acad-workshop/
+  347  ll
+  348  cd euks/
+  349  ll
+  350  screen -R euks
+  351  ll
+  352  bowtie2.sh
+  353  nano bowtie2.sh
+  354  ll
+  355  conda activate acad-euks_1
+  356  ll
+  357  sbatch bowtie2.sh 
+  358  j
+  359  squeue
+  360  ll
+  361  ls
+  362  ll
+  363  squeue
+  364  ssqueue
+  365  squeue
+  366  ll
+  367  squeue
+  368  ll
+  369  squeue
+  370  ll
+  371  cat bowtie2
+  372  cat bowtie2.sh 
+  373  squeue
+  374  ll
+  375  squeue
+  376  ll
+  377  squeue
+  378  ll
+  379  cat bowtie2.sh
+  380  squeue
+  381  ll
+  382  pwd
+  383  cd ..
+  384  ll
+  385  cd acad_workshop2024/
+  386  ll
+  387  git pull
+  388  ls
+  389  cat README.md 
+  390  cd /shared/biancamaria/acad-workshop/euks/
+  391  ll
+  392  cd ../acad_workshop2024/
+  393  ll
+  394  git pull
+  395  ls
+  396  cat README.md 
+  397  ll
+  398  squeue
+  399  ll
+  400  cd ..
+  401  ll
+  402  cd euks/
+  403  ll
+  404  cat bowtie2.out 
+  405  ll
+  406  cat bowtie2.out
+  407  squeue
+  408  scancel 2587
+  409  ll
+  410  squeue
+  411  srun --export=ALL --ntasks-per-node 4 --nodes 1 --mem 10G  -t 02:00:00 --pty bash
+  412  exit
+  413  ll
+  414  screen -list
+  415  ll
+  416  ll
+  417  squeue
+  418  cd ~/../../shared/jamesyates/acad-workshop/
+  419  ll
+  420  cd mag-assembly/
+  421  ls
+  422  ll
+  423  cd Assembly/
+  424  ll
+  425  cd MEGAHIT/
+  426  ll
+  427  cd QC/
+  428  ll
+  429  cd ERS6299592/
+  430  ll
+  431  cd QUAST/
+  432  ll
+  433  cat report.txt
+  434  squeue
+  435  nextflow clean -f
+  436  ll
+  437  du -hs
+  438  rm ERR10493277_small-FINAL.vs.fq 
+  439  du -hs
+  440  ll
+  441  conda clean -a
+  442  du -hs
+  443  conda env list
+  444  ls
+  445  ll
+  446  screen -list
+  447  screen -r whatever
+  448  screen -list
+  449  screen -R whatever
+  450  conda activate nf-core-dsl1
+  451  spack load apptainer
+  452  cd acad-workshop/
+  453  ll
+  454  cp /shared/data/samplesheets/eager_prepared_input.tsv ~/acad-workshop/
+  455  ll
+  456  cat eager_prepared_input.tsv
+  457  readlink -f eager-screening/samtools/filter/ERR5766180.unmapped.fastq.gz
+  458  history | grep 'eager'
+  459  ll
+  460  cd eager-mapping/
+  461  ll
+  462  cd multiqc/
+  463  ll
+  464  pwd
+  465  exit
+  466  conda activate nf-core-dsl2
+  467  spack load apptainer
+  468  cd acad-workshop/
+  469  ll
+  470  ls -l
+  471  nextflow pull nf-core/mag -r 2.5.4
+  472  lnextflow run nf-core/eager -r 2.5.0 -c envadna.conf -profile singularity --input '/shared/data/samplesheets/eager_input.tsv' \
+  473  nextflow run nf-core/eager -r 2.5.0 -c envadna.conf -profile singularity --input '/shared/data/samplesheets/eager_input.tsv' \
+  474  nextflow run nf-core/mag -r 2.5.4 -c envadna.conf --max_memory 30.GB -profile singularity --input '/shared/data/samplesheets/mag_input.csv' --outdir ./mag-assembly/ --skip_spades --skip_spadeshybrid --ancient_dna --binning_map_mode own --skip_concoct --gtdb_db '/shared/data/databases/release214/' --busco_db '/shared/data/databases/bacteria_odb10/' --skip_krona --skip_mataeuk
+  475  nextflow run nf-core/mag -r 2.5.4 -c envadna.conf --max_memory 30.GB -profile singularity --input '/shared/data/samplesheets/mag_input.csv' --outdir ./mag-assembly/ --skip_spades --skip_spadeshybrid --ancient_dna --binning_map_mode own --skip_concoct --gtdb_db '/shared/data/databases/release214/' --busco_db '/shared/data/databases/bacteria_odb10/' --skip_krona --skip_metaeuk
+  476  nextflow run nf-core/mag -r 2.5.4 -c envadna.conf --max_memory 30.GB -profile singularity --input '/shared/data/samplesheets/mag_input.csv' --outdir ./mag-assembly/ --skip_spades --skip_spadeshybrid --ancient_dna --binning_map_mode own --skip_concoct --gtdb_db '/shared/data/databases/release214/' --busco_db '/shared/data/databases/bacteria_odb10/' --skip_krona --skip_metaeuk -resume
+  477  nextflow clean -f
+  478  ll
+  479  nextflow clean -f
+  480  ll
+  481  exit
+  482  ll
+  483  screen list
+  484  screen -list
+  485  screen -r whatever
+  486  screen -R whatever
+  487  screen -R eager-mapping
+  488  screen -list
+  489  history| grep 'screen'
+  490  ll
+  491  screen -r whatever
+  492  screen -list
+  493  ll
+  494  cat acad-workshop/eager-mapping/bcftools/stats/2612.vcf.stats | grep ^SN
+  495  ll
+  496  conda env list
+  497  squeue
+  498  source /apps/software/functions.sh 
+  499  conda activate acad-euks_1
+  500  conda deactivate
+  501  /apps/software/metaDMG-cpp/misc/compressbam 
+  502  /apps/software/metaDMG-cpp/misc/compressbam --input ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.bam --output ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.comp.bam
+  503  ll
+  504  diff -y <(samtools view -H ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.L21.N1.bam) <(samtools view -H ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.L21.N1.comp.bam)
+  505  conda env create -f /shared/data/euks_env/bam-filterENV.yaml 
+  506  conda activate bam-filter3
+  507  pip install bam-filter
+  508  ll
+  509  filterBAM --help
+  510  filterBAM reassign --bam ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.comp.bam -t 1 -i 0 -A 92 -m 1G -o ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.comp.reassign.bam
+  511  cp /shared/data/euks_data/ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.L22.comp.reassign.bam ./
+  512  ll
+  513  samtools view ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.L22.comp.reassign.bam -h
+  514  samtools view ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.L22.comp.reassign.bam 
+  515  ll
+  516  ll *bam
+  517  filterBAM filter -e 0.6 -m 8G -t 4 -n 3 -A 92 -a 95 -N --bam ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.L21.N1.comp.reassign.bam --stats ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.L21.N1.comp.reassign.bam.stats.tsv.gz --stats-filtered ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.L21.N1.comp.reassign.bam.stats-filtered.tsv.gz --bam-filtered ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.L21.N1.comp.reassign.filtered.bam
+  518  filterBAM filter -e 0.6 -m 1G -t 1 -n 3 -A 92 -a 95 -N --bam ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.L22.comp.reassign.bam --stats ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.L22.comp.reassign.bam.stats.tsv.gz --stats-filtered ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.L22.comp.reassign.bam.stats-filtered.tsv.gz --bam-filtered ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.L22.comp.reassign.filtered.bam
+  519  ll
+  520  pwd
+  521  conda create -n pydamage -c bioconda pydamage
+  522  conda activate pydamage
+  523  ll
+  524  cd acad-workshop/
+  525  ll
+  526  pydamage analyze -pl eager-mapping/deduplication/ERR5766171/ERR5766171_rmdup.bam
+  527  ll
+  528  cd pydamage_results/
+  529  ll
+  530  column -s, -t pydamage_results.csv
+  531  ll
+  532  cat pydamage_results.csv 
+  533  column -s, -t pydamage_results.csv
+  534  cat pydamage_results.csv | less -S
+  535  cat pydamage_results.csv | less -s
+  536  cd ..
+  537  ll
+  538  pydamage filter pydamage_results/pydamage_results.csv -t 0.5
+  539  ll
+  540  column -s, -t pydamage_results/pydamage_filtered_results.csv 
+  541  ll
+  542  conda env list
+  543  conda activate acad-euks_1
+  544  samtools --help
+  545  cd euks/
+  546  ll
+  547  samtools view ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.bam | head
+  548  samtools view ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.bam | head | more
+  549  samtools view ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.bam -h | more
+  550  samtools view ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.bam -t | more
+  551  ls
+  552  ll
+  553  samtools view ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.bam -H | more
+  554  samtools view ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.bam -H | tail
+  555  ll
+  556  samtools view ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.bam -H | tail
+  557  ll
+  558  cat slurm-2597.out 
+  559  cat slurm-2607.out 
+  560  cat bowtie2.out
+  561  samtools view ERR10493277_small-FINAL.vs.d1.fq.refseq211_small_dedup.bam | cut -f1 | sort | uniq -c 
+  562  ll
+  563  srun --export=ALL --ntasks-per-node 1 --nodes 1 --mem 1G  -t 02:00:00 --pty bash
+  564  ll
+  565  metaDMG-cpp dfit ERR10493277_small-FINAL.vs.ds1.fq.refseq211_small_dedup.L22.comp.reassign.filtered.bdamage.gz --names /shared/data/euks_taxonomy/names.dmp --nodes  /shared/data/euks_taxonomy/nodes.dmp --showfits 2  --lib ds --out ERR10493277_small-FINAL.vs.fq.refseq211_small_dedup.L22.comp.reassign.filtered
+  566  source /apps/software/functions.sh 
+  567  metaDMG-cpp dfit ERR10493277_small-FINAL.vs.ds1.fq.refseq211_small_dedup.L22.comp.reassign.filtered.bdamage.gz --names /shared/data/euks_taxonomy/names.dmp --nodes  /shared/data/euks_taxonomy/nodes.dmp --showfits 2  --lib ds --out ERR10493277_small-FINAL.vs.fq.refseq211_small_dedup.L22.comp.reassign.filtered
+  568  ll
+  569  ls
+  570  ll
+  571  ls
+  572  zcat ERR10493277_small-FINAL.vs.ds1.fq.refseq211_small_dedup.L22.comp.reassign.filtered.lca.gz | less -S
+  573* zcat ERR10493277_small-FINAL.vs.ds1.fq.refseq211_small_dedup.L22.comp.reassign.filtered.rlens.gz |
+  574  cat slurm-2597.out qq
+  575  ll
+  576  conda --add channels defaults
+  577  ll
+  578  zcat ERR10493277_small-FINAL.vs.ds1.fq.refseq211_small_dedup.L22.comp.reassign.filtered.rlens.gz | column -t -s $'\t' | less -S -N
+  579  ll
+  580  screen list
+  581  screen -list
+  582  ll
+  583  metaDMG-cpp aggregate ERR10493277_small-FINAL.vs.ds1.fq.refseq211_small_dedup.L22.comp.reassign.filtered.bdamage.gz
+  584  metaDMG-cpp aggregate ERR10493277_small-FINAL.vs.ds1.fq.refseq211_small_dedup.L22.comp.reassign.filtered.bdamage.gz -lcastat ERR10493277_small-FINAL.vs.ds1.fq.refseq211_small_dedup.L22.comp.reassign.filtered.stat.gz --names /shared/data/euks_taxonomy/names.dmp --nodes  /shared/data/euks_taxonomy/nodes.dmp
+  585  ll
+  586  zcat ERR10493277_small-FINAL.vs.ds1.fq.refseq211_small_dedup.L22.reassign.filtered.bdamage.gz.stat.gz | paste - <(zcat ERR10493277_small-FINAL.vs.fq.refseq211_small_dedup.L22.N1.comp.reassign.filtered.dfit.gz) > ERR10493277_small-FINAL.vs.fq.refseq211_small_dedup.L22.N1.comp.reassign.filtered.combined_metaDMG_output.txt
+  587  zcat  ERR10493277_small-FINAL.vs.ds1.fq.refseq211_small_dedup.L22.comp.reassign.filtered.bdamage.gz.stat.gz | paste - <(zcat ERR10493277_small-FINAL.vs.fq.refseq211_small_dedup.L22.comp.reassign.filtered.dfit.gz) > ERR10493277_small-FINAL.vs.fq.refseq211_small_dedup.L22.N1.comp.reassign.filtered.combined_metaDMG_output.txt
+  588  ll
+  589  pwd
+  590  history| grep 'git'
+  591  history
+  592  history | cat
+  593  cat history
+  594  ~/bach_history
+  595  ~/bash_history
+  596  history > ouputfile.txt
